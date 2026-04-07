@@ -2,10 +2,20 @@ package main
 
 import (
 	"fast_gin/core"
-	"fmt"
+	"fast_gin/flags"
+	"fast_gin/global"
+	"fast_gin/routers"
+	"fast_gin/service/cron_ser"
 )
 
 func main() {
-	cfg := core.ReadConfig()
-	fmt.Println(cfg.DB)
+	core.InitLogger()
+	flags.Parse()
+	global.Config = core.ReadConfig()
+	global.DB = core.InitGorm()
+	global.Redis = core.InitRedis()
+	cron_ser.CronInit()
+
+	flags.Run()
+	routers.Run()
 }

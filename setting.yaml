@@ -1,5 +1,25 @@
 db:
+  mode: mysql # mysql sqlite pgsql ""
+  db_name: fast_db
   host: 127.0.0.1
   port: 3306
   user: root
-  password: "jk176258010"
+  password: jk176258010
+redis:
+  addr: "127.0.0.1:6379"
+  password: ""
+  db: 1
+system:
+  ip: 127.0.0.1
+  mode: release #debug
+  port: 8080
+jwt:
+  Expires: 8 #有效期单位
+  Issuer: fast_gin
+  key: fdsbfsduyahjtbf
+upload:
+  size: 2 #上传大小限制 MB
+  dir: images
+site:
+  Login:
+    captcha: true
