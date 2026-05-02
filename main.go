@@ -14,6 +14,7 @@ func main() {
 	global.Config = core.ReadConfig()
 	global.DB = core.InitGorm()
 	global.Redis = core.InitRedis()
+	global.Es = core.EsConnect()
 	cron_ser.CronInit()
 
 	flags.Run()
